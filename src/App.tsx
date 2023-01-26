@@ -1,5 +1,6 @@
 
 import './styles/global.css'
+import './lib/dayjs'
 //import { Habit } from './components/Habits'
 import logoImage from './assets/logo.svg'
 import { Plus } from 'phosphor-react'
