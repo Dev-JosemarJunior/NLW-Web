@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/axios";
 
 interface HabitsListProps {
-  date: Date
+  date: Date,
+  onCompletedChange: (completed: number) => void
 }
 
 interface HabitsInfo {
@@ -17,7 +18,7 @@ interface HabitsInfo {
   completedHabits: string[]
 }
 
-export default function HabitsList({ date }: HabitsListProps) {
+export default function HabitsList({ date, onCompletedChange }: HabitsListProps) {
 
   const [habitsInfo, setHabitsInfo] = useState<HabitsInfo>()
 
@@ -48,6 +49,8 @@ export default function HabitsList({ date }: HabitsListProps) {
       possibleHabits: habitsInfo!.possibleHabits,
       completedHabits,
     })
+
+    onCompletedChange(completedHabits.length)
   }
 
   return (
